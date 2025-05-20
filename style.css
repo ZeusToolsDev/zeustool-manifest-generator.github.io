@@ -1,0 +1,471 @@
+:root {
+    /* Theme variables */
+    --bg: rgba(25, 13, 42, 0.95);
+    --card-bg: rgba(45, 25, 75, 0.45);
+    --border: rgba(147, 112, 219, 0.2);
+    --text: #ffffff;
+    --text-muted: #b0b0b0;
+    --link: #bb86fc;
+    --link-hover: #d5b3ff;
+    --scrollbar: rgba(45, 25, 75, 0.6);
+    --scrollbar-thumb: rgba(147, 112, 219, 0.5);
+    --nav-bg: rgba(31, 17, 51, 0.95);
+    --input-bg: rgba(45, 25, 75, 0.3);
+    --card-hover: rgba(55, 30, 90, 0.55);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(147, 112, 219, 0.7);
+}
+
+/* Theme Styles */
+body {
+    min-height: 100vh;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-x: hidden;
+    background: linear-gradient(135deg, var(--bg), rgba(38, 20, 65, 0.95));
+    color: var(--text);
+}
+
+/* Glassmorphism Cards */
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+.card:hover {
+    background: var(--card-hover);
+    border-color: rgba(147, 112, 219, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(147, 112, 219, 0.2);
+}
+
+.card-header {
+    background: rgba(45, 25, 75, 0.6) !important;
+    border-bottom: 1px solid var(--border);
+}
+
+/* Form Controls */
+.form-control {
+    background: var(--input-bg) !important;
+    border-color: var(--border) !important;
+    color: var(--text) !important;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.form-control:focus {
+    border-color: rgba(147, 112, 219, 0.5) !important;
+    box-shadow: 0 0 0 0.25rem rgba(147, 112, 219, 0.25);
+}
+
+/* Text Colors */
+h1, h2, h3, h4, h5, h6,
+p, span, div, label,
+.card-title, .card-text,
+.game-title, .game-id,
+.file-name, #gameDescription,
+#gameName, .game-detail {
+    color: var(--text) !important;
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+/* Navigation */
+.navbar {
+    background: var(--nav-bg) !important;
+    border-color: var(--border) !important;
+}
+
+.navbar-brand,
+.nav-link,
+.navbar-nav .nav-link {
+    color: var(--text) !important;
+}
+
+.navbar-brand:hover,
+.nav-link:hover,
+.navbar-nav .nav-link:hover {
+    color: var(--link) !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, rgba(147, 112, 219, 0.8), rgba(187, 134, 252, 0.8)) !important;
+    border: none;
+    color: var(--text) !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, rgba(157, 122, 229, 0.9), rgba(197, 144, 255, 0.9)) !important;
+}
+
+/* Quick Links */
+.quick-link {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--border);
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    background: var(--input-bg);
+    color: var(--text);
+}
+
+.quick-link:hover {
+    background: var(--card-hover);
+    border-color: rgba(147, 112, 219, 0.4);
+    transform: translateX(5px);
+}
+
+.quick-link-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 12px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    vertical-align: middle;
+    display: inline-block;
+}
+
+/* Steam and SteamDB icon specific styles */
+.quick-link:first-child .quick-link-icon,
+.quick-link:last-child .quick-link-icon {
+    width: 32px;
+    height: 32px;
+    filter: brightness(0) invert(1) !important; /* Force white color */
+}
+
+/* File Items */
+.file-item {
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.file-item:hover {
+    background: var(--card-hover);
+    border-color: rgba(147, 112, 219, 0.4);
+}
+
+/* List Items */
+.list-group-item {
+    background: var(--card-bg) !important;
+    border-color: var(--border) !important;
+    color: var(--text) !important;
+}
+
+.list-group-item:hover {
+    background: var(--card-hover) !important;
+}
+
+/* Alerts */
+.alert-danger {
+    background: rgba(220, 53, 69, 0.1) !important;
+    border-color: rgba(220, 53, 69, 0.3) !important;
+    color: #ff8585 !important;
+}
+
+/* Icons */
+.bi {
+    color: var(--text);
+}
+
+.game-detail i {
+    color: var(--link);
+}
+
+/* Search and Download Buttons */
+#searchBtn,
+#downloadBtn {
+    background: linear-gradient(135deg, rgba(147, 112, 219, 0.8), rgba(187, 134, 252, 0.8)) !important;
+    border: none;
+    color: var(--text) !important;
+}
+
+#searchBtn:hover,
+#downloadBtn:hover {
+    background: linear-gradient(135deg, rgba(157, 122, 229, 0.9), rgba(197, 144, 255, 0.9)) !important;
+}
+
+/* History Items */
+.history-item {
+    animation: fadeIn 0.5s ease;
+    cursor: pointer;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid var(--border);
+    background: var(--card-bg);
+}
+
+.history-item:hover {
+    transform: translateX(5px);
+    background: var(--card-hover);
+}
+
+.history-item img {
+    width: 120px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.history-item:hover img {
+    transform: scale(1.05);
+}
+
+.history-item .game-title {
+    color: var(--text) !important;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.history-item .game-id {
+    color: var(--text-muted) !important;
+    font-size: 0.875rem;
+}
+
+/* Enhanced Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+}
+
+/* Loading State */
+.loading-state {
+    position: relative;
+    overflow: hidden;
+}
+
+.loading-state::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shimmer 2s infinite;
+}
+
+/* Theme Switch */
+.theme-switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    margin: 0 15px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(30px);
+}
+
+/* Game Details */
+.game-detail {
+    animation: slideIn 0.5s ease;
+    margin-bottom: 0.5rem;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* File Items */
+.file-item {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.file-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--link), transparent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.file-item:hover::after {
+    transform: scaleX(1);
+}
+
+/* Error Messages */
+.alert {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform-origin: center;
+    animation: fadeIn 0.3s ease, pulse 2s infinite;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.card-header {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+#gameHeader {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.list-group-item {
+    background-color: transparent !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+}
+
+.list-group-item:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.list-group-item.active {
+    background-color: #0d6efd !important;
+    border-color: #0d6efd !important;
+}
+
+/* Game Card Enhancements */
+.game-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.game-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(147, 112, 219, 0.1));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.game-card:hover::before {
+    opacity: 1;
+}
+
+/* Alert Enhancements */
+.alert {
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform-origin: center;
+    animation: fadeIn 0.3s ease, pulse 2s infinite;
+}
+
+/* Theme Switch Enhancement */
+.slider {
+    background: rgba(148, 180, 255, 0.3);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.navbar-toggler {
+    border-color: var(--border);
+    background: var(--input-bg);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* Additional Glass Effects for Light Mode */
+.dropdown-menu {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.tooltip {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+} 

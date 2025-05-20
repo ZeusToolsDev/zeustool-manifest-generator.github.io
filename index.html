@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeusTools Manifest Downloader</title>
+    <link href="../cdn.jsdelivr.net/npm/bootstrap%405.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../cdn.jsdelivr.net/npm/bootstrap-icons%401.7.2/font/bootstrap-icons.css">
+    <link href="css/style.css" rel="stylesheet">
+    <style type="text/css">
+        :root {
+            --primary-gradient: linear-gradient(135deg, #0d6efd, #0099ff);
+        }
+        .btn-primary {
+            background: var(--primary-gradient) !important;
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-cloud-download"></i> ZeusTools Manifest Downloader
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="clearHistoryBtn">
+                            <i class="bi bi-trash"></i> Clear History
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Search Column -->
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title text-center mb-4">
+                            <i class="bi bi-search"></i> Search Steam Manifests
+                        </h2>
+                        <div class="input-group mb-3">
+                            <input type="text" id="appid" class="form-control" placeholder="Enter Steam AppID">
+                            <button class="btn btn-primary" type="button" id="searchBtn">
+                                <i class="bi bi-search"></i> Search
+                            </button>
+                        </div>
+                        <div class="text-muted small">
+                            <i class="bi bi-info-circle"></i> Tip: Find the AppID in the Steam store URL
+                        </div>
+                    </div>
+                </div>
+
+                <div id="result" class="mt-4" style="display: none;">
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="gameInfo">
+                                <img id="gameHeader" class="img-fluid mb-3 rounded" style="width: 100%;">
+                                <h3 id="gameName" class="mb-3"></h3>
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div class="game-detail">
+                                            <i class="bi bi-calendar"></i>
+                                            <span id="releaseDate">Unknown</span>
+                                        </div>
+                                        <div class="game-detail">
+                                            <i class="bi bi-person"></i>
+                                            <span id="developer">Unknown</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="game-detail">
+                                            <i class="bi bi-tag"></i>
+                                            <span id="genres">Unknown</span>
+                                        </div>
+                                        <div class="game-detail">
+                                            <i class="bi bi-globe"></i>
+                                            <span id="languages">Unknown</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p id="gameDescription" class="text-muted"></p>
+                            </div>
+                            <div id="manifestInfo" class="mt-4">
+                                <h4><i class="bi bi-file-earmark-text"></i> Available Files</h4>
+                                <div id="fileList" class="list-group list-group-flush"></div>
+                                <p id="fileCount" class="mt-2"></p>
+                                <div id="downloadSection" class="text-center mt-4">
+                                    <button id="downloadBtn" class="btn btn-success btn-lg">
+                                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                        <i class="bi bi-download"></i> Download Files
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="error" class="alert alert-danger mt-4" style="display: none;">
+                    <i class="bi bi-exclamation-triangle"></i> <span id="errorText"></span>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="bi bi-clock-history"></i> Recent Searches</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div id="searchHistory" class="list-group list-group-flush">
+                            <!-- History items will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="bi bi-link-45deg"></i> Quick Links</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="quickLinks">
+                            <!-- Links will be added when a game is selected -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="spinner-border text-light" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <script src="../cdn.jsdelivr.net/npm/bootstrap%405.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
